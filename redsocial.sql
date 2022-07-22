@@ -21,10 +21,10 @@ USE `redsocial` ;
 -- Table `redsocial`.`privilegios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `redsocial`.`privilegios` (
-  `idPerfil` INT NOT NULL AUTO_INCREMENT,
-  `nombrePrivilegio` VARCHAR(100) NOT NULL,
+    `idPerfil` INT NOT NULL AUTO_INCREMENT,
+    `nombrePrivilegio` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idPerfil`))
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -40,12 +40,8 @@ CREATE TABLE IF NOT EXISTS `redsocial`.`usuarios` (
   PRIMARY KEY (`idusuario`),
   INDEX `priviUser_idx` (`idPrivilegio` ASC),
   CONSTRAINT `priviUser`
-    FOREIGN KEY (`idPrivilegio`)
-    REFERENCES `redsocial`.`privilegios` (`idPerfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    FOREIGN KEY (`idPrivilegio`) REFERENCES `redsocial`.`privilegios` (`idPerfil`) ON DELETE NO ACTION    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `redsocial`.`publicaciones`
