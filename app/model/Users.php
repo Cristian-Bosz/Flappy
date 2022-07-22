@@ -11,7 +11,7 @@ class Users
 
     public function connect()
     {
-        $this->db->query("SELECT * FROM users");
+        $this->db->query("SELECT * FROM usuarios");
         return $this->db->registers();
     }
 
