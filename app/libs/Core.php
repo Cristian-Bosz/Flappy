@@ -10,12 +10,12 @@ class Core
     {
         $url = $this->getURL();
         
-        if(file_exists("../app/controller/" . ucwords($url[0]) . ".php")) {
+        if(file_exists("../app/controllers/" . ucwords($url[0]) . ".php")) {
             $this->currentController = ucwords($url[0]);
             unset($url[0]);
         }
 
-        include_once "../app/controller/" . $this->currentController . ".php";
+        include_once "../app/controllers/" . $this->currentController . ".php";
         $this->currentController = new $this->currentController;
 
         if(isset($url[1])) {
