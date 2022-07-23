@@ -33,6 +33,8 @@ class Home extends Controller
          if ($this->usuario->verificarContrasena($datosUsuario , $datosLogin['password']))
             {
                $_SESSION['logueado'] = $datosUsuario->privilegio_id_fk;
+               $_SESSION['usuario'] = $datosUsuario->username;
+
                redirection('/home');
             } else {
                $_SESSION['errorLogin'] = 'El usuario o la contraseña son incorrectas';

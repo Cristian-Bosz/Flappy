@@ -1,6 +1,5 @@
 <?php
 include_once URL_APP . '/view/custom/header.php';
-include_once URL_APP . '/view/custom/navbar.php';
 ?>
 
 <section class="container-fluid py-3 bg-light contacto">
