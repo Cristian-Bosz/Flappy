@@ -74,8 +74,8 @@ class Base
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function count()
+    public function rowCount()
     {
-        return $this->stmt->rowCunt();
+        return $this->stmt->rowCount();
     }
 }
