@@ -10,17 +10,22 @@ class usuario
     }
 
     public function verificarUsuario($datosUsuario){
-        $this->db->query('SELECT usuario FROM usuarios WHERE usuario = :user');
+        $this->db->query('SELECT username FROM usuarios WHERE username = :user');
         $this->db->bind(':user', $datosUsuario['usuario']);
+        if($this->db->num_rows){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     public function register($datosUsuario)
     {
-        $this->db->query('INSERT INTO usuarios (idPrivilegio, correo, usuario, contrasena) VALUES (:privilegio, :correo, :usuario, :contrasena)');
+        $this->db->query('INSERT INTO usuarios (correo, username, password, privilegio_id_fk) VALUES (:correo, :username, :password, :privilegio)');
         $this->db->bind(':privilegio', $datosUsuario['privilegio']);
         $this->db->bind(':correo', $datosUsuario['email']);
-        $this->db->bind(':usuario', $datosUsuario['usuario']);
-        $this->db->bind(':contrasena', $datosUsuario['password']);
+        $this->db->bind(':username', $datosUsuario['usuario']);
+        $this->db->bind(':password', $datosUsuario['password']);
 
         if($this->db->execute()){
             return true;
@@ -28,5 +33,4 @@ class usuario
             return false;
         }
     }
-
 }

@@ -18,13 +18,15 @@ class Home extends Controller
        }
     }
     public function register() {
+      /*hago un array para guardar la datos que se registran en el formulario */
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $datosRegistro = [
-               'privilegio' => '1',
+               'privilegio' => '2',
                'email' => trim($_POST['email']),
                'usuario' => trim($_POST['usuario']),
                'password' => password_hash(trim($_POST['password']), PASSWORD_DEFAULT)
             ];
+      /*valido si el usuario se crea correctamente */
             if ($this->usuario->verificarUsuario($datosRegistro)){
                if ($this->usuario->register($datosRegistro)){
                $_SESSION['usuario'] = $datosRegistro['usuario'];

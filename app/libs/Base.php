@@ -23,7 +23,7 @@ class Base
 
         try {
             $this->cnx = new PDO($dbh, $this->dbuser, $this->dbpass, $options);
-            $this->cnx->exec("set names utf8");
+            $this->cnx->exec("set names utf8mb4");
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
             echo $this->error;
