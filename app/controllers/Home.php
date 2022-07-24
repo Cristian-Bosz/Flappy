@@ -12,7 +12,20 @@ class Home extends Controller
     {
        if (isset($_SESSION['logueado']))
        {
-         $this->view('pages/home');
+         $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
+         $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
+
+         if($datosPerfil){
+            $datosRed = [
+               'usuario' => $datosUsuario,
+               'perfil' => $datosPerfil,
+            ];
+   
+            $this->view('pages/home' , $datosRed);
+         }else{
+            $this->view('pages/perfil/completarPerfil' , $_SESSION['logueado']);
+         }
+        
        } else {
          redirection('/home/login');
        }
@@ -79,6 +92,27 @@ class Home extends Controller
            $this->view('pages/register');
          }
         }
+     }
+/*aca vamos a guardar las imagenes de los usuarios */
+     public function insertarRegistroPerfil()
+     {
+      $carpeta = 'C:/xampp/htdocs/flappy/public/img/imagenesPerfil/';
+      opendir($carpeta);
+      $rutaImagen = 'img/imagenesPerfil/' . $_FILES['imagen']['name'];
+      $ruta = $carpeta . $_FILES['imagen']['name'];
+      copy($_FILES['imagen']['tmp_name'] , $ruta);
+
+      $datos = [
+         'idusuario' => trim($_POST['id_user']),
+         'nombre' => trim($_POST['nombre']),
+         'ruta' => $rutaImagen,
+      ];
+
+      if ($this->usuario->insertarPerfil($datos)){
+         redirection('/home');
+      } else {
+         echo 'el perfil no se ha guardado';
+      }
      }
 
      public function logout()
