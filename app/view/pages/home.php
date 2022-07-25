@@ -12,7 +12,8 @@ include_once URL_APP . '/view/custom/navbar.php';
     <div class="container">
     <img class="rounded-circle w-25" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>"/>
 <br>
-<div class="text-left"> <?= $datos['perfil']->nombreCompleto?></div>
+<a href="<?php echo URL_PROJECT?>/perfil/<?php echo $datos['usuario']->username ?>"><div class="text-left"> <?= $datos['perfil']->nombreCompleto?></div></a>
+
 <div class="">
     <a href="#"> Publicaciones  0</a> <br>
     <a href="#"> Me gustas  0</a>

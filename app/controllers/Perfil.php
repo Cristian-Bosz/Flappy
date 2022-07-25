@@ -12,7 +12,7 @@ class Perfil extends Controller
     {
         if(isset($_SESSION['logueado'])){
             $datosUsuario = $this->usuario->getUsuario($user);
-            $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id_fk);
+            $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id);
 
             $datos = [
                 'perfil' => $datosPerfil,
