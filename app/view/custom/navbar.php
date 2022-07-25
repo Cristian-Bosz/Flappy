@@ -13,7 +13,7 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link active" aria-current="page" href="<?php echo URL_PROJECT?>/home">
           <i class="fa-solid fa-house mx-1"></i>Inicio</a>
         </li>
         <li class="nav-item">
