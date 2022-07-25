@@ -51,7 +51,6 @@ include_once URL_APP . '/view/custom/navbar.php';
                 </form>
             </div>
         </div>
-
     </div>
     
     <div class="col-md-3">  </div>
