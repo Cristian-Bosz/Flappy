@@ -35,19 +35,16 @@ class Home extends Controller
     {
        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
          $datosLogin = [
-            'email' => trim($_POST['email']),
+            'usuario' => trim($_POST['usuario']),
             'password' => trim($_POST['password'])
          ];
 
-         $datosUsuario = $this->usuario->getUsuario($datosLogin['email']);
-
-         var_dump($datosUsuario);
+         $datosUsuario = $this->usuario->getUsuario($datosLogin['usuario']);
 
          if ($this->usuario->verificarContrasena($datosUsuario , $datosLogin['password']))
             {
-               $_SESSION['logueado'] = $datosUsuario->privilegio_id_fk;
+               $_SESSION['logueado'] = $datosUsuario->usuario_id;
                $_SESSION['usuario'] = $datosUsuario->username;
-
                redirection('/home');
             } else {
                $_SESSION['errorLogin'] = 'El usuario o la contraseña son incorrectas';

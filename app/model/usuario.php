@@ -10,7 +10,7 @@ class usuario
     }
 /*esta funcion va a obtener toda la información del usuario que le pasemos */
     public function getUsuario($usuario){
-        $this->db->query('SELECT * FROM usuarios WHERE correo = :user');
+        $this->db->query('SELECT * FROM usuarios WHERE username = :user');
         $this->db->bind(':user', $usuario);
         return $this->db->register();
     }
@@ -36,8 +36,8 @@ class usuario
 
     /*verifico que los usuarios no puedan tener los mismos emails */
     public function verificarUsuario($datosUsuario){
-        $this->db->query('SELECT correo FROM usuarios WHERE correo = :user');
-        $this->db->bind(':user', $datosUsuario['email']);
+        $this->db->query('SELECT username FROM usuarios WHERE username = :user');
+        $this->db->bind(':user', $datosUsuario['usuario']);
         $this->db->register();
         if($this->db->rowCount()){
             return false;

@@ -26,9 +26,9 @@ include_once URL_APP . '/view/custom/header.php';
 
         <form class="container" action="<?php echo URL_PROJECT?>/home/login" method="post">
 
-                <div class="form-outline mb-4">
-                    <label class="form-label">Email*</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa tu Email"  />
+        <div class="form-outline mb-4">
+                    <label class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" name="usuario" id="usuario" required/>
                 </div>
 
                 <div class="form-outline mb-4">

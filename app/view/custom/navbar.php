@@ -27,7 +27,9 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php echo ucwords($_SESSION['usuario']);?> 
+         
+          <img class="rounded-circle img-perfil-nav" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>"/>
+           
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Perfil</a></li>
