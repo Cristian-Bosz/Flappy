@@ -66,6 +66,7 @@ include_once URL_APP . '/view/custom/navbar.php';
 
 </div>
 
+</div>
 
 <?php
 include_once URL_APP . '/view/custom/footer.php';
