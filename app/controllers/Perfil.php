@@ -22,4 +22,25 @@ class Perfil extends Controller
             $this->view('pages/perfil/perfil' , $datos);
         }
     }
+
+    public function cambiarImagen()
+    {
+        $carpeta = 'C:/xampp/htdocs/flappy/public/img/imagenesPerfil/';
+        opendir($carpeta);
+        $rutaImagen = 'img/imagenesPerfil/' . $_FILES['imagen']['name'];
+        $ruta = $carpeta . $_FILES['imagen']['name'];
+        copy($_FILES['imagen']['tmp_name'] , $ruta);
+  
+        $datos = [
+           'idusuario' => trim($_POST['id_user']),
+           'ruta' => $rutaImagen,
+        ];
+  
+        if ($this->perfil->editarFoto($datos)){
+           redirection('/home');
+        } else {
+           echo 'el perfil no se ha guardado';
+        }
+    }
+    
 }

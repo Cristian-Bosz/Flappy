@@ -1,12 +1,13 @@
 <?php
 include_once URL_APP . '/view/custom/header.php';
 include_once URL_APP . '/view/custom/navbar.php';
-
 ?>
 
-<pre>
-   <?php var_dump($datos);?>
-</pre>
+
+
+   <?php // var_dump($datos);?>
+
+
 <div class="container">
 <div class="row">
     <div class="col-lg-3 fondo">
