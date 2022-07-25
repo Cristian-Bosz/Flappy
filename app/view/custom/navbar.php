@@ -13,7 +13,7 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link active" aria-current="page" href="<?php echo URL_PROJECT?>/home">
           <i class="fa-solid fa-house mx-1"></i>Inicio</a>
         </li>
         <li class="nav-item">
@@ -32,7 +32,7 @@
            
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="<?= URL_PROJECT ?>/perfil/<?= $datos['usuario']->username?>">Perfil</a></li>
                 
             <li><hr class="dropdown-divider"></li>
            <li><a class="dropdown-item btn btn-primary" href="<?= URL_PROJECT?>/home/logout" role="button">Cerrar Sesión</a></li>    
