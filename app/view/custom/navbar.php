@@ -32,7 +32,7 @@
            
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="<?= URL_PROJECT ?>/perfil/<?= $datos['usuario']->username?>">Perfil</a></li>
                 
             <li><hr class="dropdown-divider"></li>
            <li><a class="dropdown-item btn btn-primary" href="<?= URL_PROJECT?>/home/logout" role="button">Cerrar Sesión</a></li>    

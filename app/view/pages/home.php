@@ -1,8 +1,12 @@
 <?php
 include_once URL_APP . '/view/custom/header.php';
 include_once URL_APP . '/view/custom/navbar.php';
-//var_dump($datos);
+
 ?>
+
+<pre>
+   <?php var_dump($datos);?>
+</pre>
 <div class="container">
 <div class="row">
     <div class="col-lg-3 fondo">
@@ -11,11 +15,14 @@ include_once URL_APP . '/view/custom/navbar.php';
         <div class="card-body pt-0">
             <div class="text-center">
                 <div class="avatar avatar-lg mt-n5 mb-3">
-                    <a href="#">
-                        <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" class="avatar-img rounded border border-white border-3" alt="fotoPerfil">
+                    <a href="<?= URL_PROJECT ?>/perfil/<?= $datos['usuario']->username?>">
+                        <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" class="avatar-img rounded border border-white border-3 " alt="foto de perfil de <?= $datos['perfil']->nombreCompleto?>"/>
                     </a>
                 </div>
-            <h5><?= $datos['perfil']->nombreCompleto?></h5>
+                <a href="<?= URL_PROJECT ?>/perfil/<?= $datos['usuario']->username?>"> 
+                <h5><?= $datos['perfil']->nombreCompleto?></h5>
+                </a>
+           
             <small class="text-muted"><?= $datos['usuario']->username ?></small>
             <p class="text-muted mt-2">El saber no ocupa espacio</p>
             <div class="hstack gap-2 gap-xl-3 justify-content-center">
@@ -38,7 +45,7 @@ include_once URL_APP . '/view/custom/navbar.php';
             <div class="d-flex mb-3">
                 <div class="avatar me-2">
                     <a href="#">
-                        <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="fotoPerfilPublicacion" class="avatar-img rounded-circle">
+                        <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="foto de perfil en publicación de <?= $datos['perfil']->nombreCompleto?>" class="avatar-img rounded-circle">
                     </a>
                 </div>
                 <form action="" class="w-100">
