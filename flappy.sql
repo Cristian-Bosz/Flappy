@@ -43,3 +43,9 @@ CREATE TABLE IF NOT EXISTS perfil (
     FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION)
  
 ENGINE = InnoDB;
+
+INSERT INTO perfil 
+VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/tony.jpg', 	1),
+       (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg', 	2);
+     
+
