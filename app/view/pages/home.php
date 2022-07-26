@@ -1,17 +1,15 @@
 <?php
 include_once URL_APP . '/view/custom/header.php';
 include_once URL_APP . '/view/custom/navbar.php';
+
+//dd($datos);
+
 ?>
 
-
-
-   <?php // var_dump($datos);?>
-
-
-<div class="container">
+<div class="container mt-3">
 <div class="row">
-    <div class="col-lg-3 fondo">
-        <div class="cardP overflow-hidden">
+    <div class="col-lg-3">
+        <div class="cardP overflow-hidden fondo">
         <div class="h-50px bg-profile"></div>
         <div class="card-body pt-0">
             <div class="text-center">
@@ -49,16 +47,22 @@ include_once URL_APP . '/view/custom/navbar.php';
                         <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="foto de perfil en publicación de <?= $datos['perfil']->nombreCompleto?>" class="avatar-img rounded-circle">
                     </a>
                 </div>
-                <form action="" class="w-100">
-                    <textarea class="form-control pe-4 border-0" rows="2" data-autoresize="" placeholder="¿Que estas pensando...?" style="height: 61px;"></textarea>
+                <form action="<?php echo URL_PROJECT ?>/publicaciones/publicar/<?php echo $datos['usuario']->usuario_id ?>" 
+                      enctype="multipart/form-data" 
+                      method="POST" 
+                      class="w-100">
+                    <textarea class="form-control pe-4 border-0" rows="2" id="contenido" name="contenido" placeholder="¿Que estas pensando...?" style="height: 61px;"></textarea>
                     <label for="subirImg" class="mt-3">
                         <p class="btn bg-light py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Foto</p>
-                        <input type="file" id="subirImg"  style="display: none" />
+                        <input type="file" id="subirImg" name="imagen"  style="display: none" />
                     </label>
                     <button type="submit" class="btn btn-primary float-end mt-3">Publicar</button>
                 </form>
             </div>
         </div>
+        <?php
+        include_once URL_APP . '/view/custom/publicaciones.php';
+        ?>
     </div>
     
     <div class="col-md-3">  </div>

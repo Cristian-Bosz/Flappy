@@ -43,3 +43,14 @@ CREATE TABLE IF NOT EXISTS perfil (
     FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION)
  
 ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS publicaciones (
+  publicacion_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  contenidoPublicacion VARCHAR(255) NOT NULL,
+  fechaPublicacion TIMESTAMP NOT NULL,
+  fotoPublicacion VARCHAR(255),
+  usuario_id_fk INT UNSIGNED NOT NULL,
+ 
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION)
+ 
+ENGINE = InnoDB;
