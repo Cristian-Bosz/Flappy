@@ -26,7 +26,8 @@ class Publicar
     }
 
     public function getPublicaciones() {
-        $this->db->query('SELECT P.publicacion_id, P.contenidoPublicacion, P.fotoPublicacion, P.fechaPublicacion, P.num_likes, U.username, Per.fotoPerfil FROM publicaciones P
+        $this->db->query('SELECT P.publicacion_id, P.contenidoPublicacion, P.fotoPublicacion, P.fechaPublicacion, P.num_likes, U.username, U.usuario_id, Per.fotoPerfil 
+                          FROM publicaciones P
                           INNER JOIN usuarios U ON U.usuario_id = P.usuario_id_fk 
                           INNER JOIN perfil Per ON Per.usuario_id_fk = P.usuario_id_fk');
         return $this->db->registers();
@@ -114,6 +115,39 @@ class Publicar
         $this->db->query('SELECT * FROM likes WHERE usuario_id_fk = :id');
         $this->db->bind(':id', $user);
         return $this->db->registers();
+    }
+
+    public function publicarComentario($datos)
+    {
+        $this->db->query('INSERT INTO comentarios (usuario_id_fk, publicacion_id_fk, contenidoComentario) VALUES (:usuario_id, :publicacion_id, :comentario)');
+        $this->db->bind(':usuario_id', $datos['usuario_id']);
+        $this->db->bind(':publicacion_id', $datos['publicacion_id']);
+        $this->db->bind(':comentario', $datos['comentario']);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function getComentarios()
+    {
+        $this->db->query('SELECT C.comentarios_id, C.contenidoComentario, C.fechaComentario, C.publicacion_id_fk, C.usuario_id_fk, U.username, Per.fotoPerfil FROM comentarios C
+        INNER JOIN usuarios U ON U.usuario_id = C.usuario_id_fk 
+        INNER JOIN perfil Per ON Per.usuario_id_fk = C.usuario_id_fk');
+        return $this->db->registers();
+
+    }
+
+    public function eliminarComentarioUsuario($id) {
+        $this->db->query('DELETE FROM comentarios WHERE comentarios_id = :id');
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

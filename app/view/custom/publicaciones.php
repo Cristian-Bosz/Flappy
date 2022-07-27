@@ -1,5 +1,5 @@
 <?php
-//dd($datos);
+//dd($datos['comentarios']);
 ?>
 <?php foreach($datos['publicaciones'] as $datosPublicacion): ?>
 <div class="card mt-3">
@@ -19,7 +19,9 @@
                 </div>
             </div>
             <div>
+            <?php if ($datosPublicacion ->usuario_id == $_SESSION['logueado']):?>
                 <a href="<?php echo URL_PROJECT ?>/publicaciones/eliminar/<?php echo $datosPublicacion->publicacion_id?>"><i class="fa-solid fa-trash-can"></i></a>
+            <?php endif ?>
             </div>
         </div>
     </div>
@@ -39,7 +41,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#!"><i class="fa-solid fa-comment pe-1"></i>Comments (12)</a>
+                <a class="nav-link" href="#Comentarios"><i class="fa-solid fa-comment pe-1"></i>Comments (12)</a>
               </li>
         </ul>
         <div class="d-flex mb-3">
@@ -48,27 +50,41 @@
                 <a href="#!"> <img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt=""> </a>
               </div>
               <!-- Comment box  -->
-              <form class="w-100">
-                <textarea data-autoresize="" class="form-control pe-4 bg-light" rows="1" placeholder="Agrega un comentario..."></textarea>
+              <form class="w-100" action="<?php echo URL_PROJECT ?>/publicaciones/comentar" method="POST">
+                    <input type="hidden" name="usuario_id" value="<?php echo $datos['usuario']->usuario_id?>">
+                    <input type="hidden" name="publicacion_id" value="<?php echo $datosPublicacion->publicacion_id?>">
+                    <textarea name="comentario" class="form-control pe-4 bg-light" rows="1" placeholder="Agrega un comentario..." require></textarea>
+                    <button class="btn btn-primary float-end mt-3" type="submit">Comentar</button>
               </form>
         </div>
-        <ul class="comment-wrap list-unstyled">
-            <li class="comment-item">
-                <div class="d-flex position-relative">
-                    <div class="avatar avatar-xs">
-                        <a href="#!"><img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="fotoPerfilUsuario"></a>
-                    </div>
-                    <div class="ms-2">
-                        <div class="bg-light rounded-start-top-0 p-3 rounded">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="mb-1 fw-bold"> <a href="#!">Peter Quill</a></h6>
-                                <small class="ms-2">5hr</small>
+        <ul class="comment-wrap list-unstyled" id="Comentarios">
+            <?php foreach ($datos['comentarios'] as $datosComentarios): ?>
+                <?php if($datosComentarios->publicacion_id_fk == $datosPublicacion->publicacion_id):?>
+                    <li class="comment-item mt-3">
+                        <div class="d-flex position-relative">
+                            <div class="avatar avatar-xs">
+                                <a href="#!">
+                                    <img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datosComentarios->fotoPerfil?>" alt="fotoPerfilUsuario">
+                                </a>
                             </div>
-                            <p class="small mb-0">¿Que vamos hacer? ¿algo bueno? ¿algo malo? ¿Un poco de ambos? un poco de ambos</p>
+                            <div class="ms-2 w-100">
+                                <div class="bg-light rounded-start-top-0 p-3 rounded">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="mb-1 fw-bold"> <a href="#!"><?= $datosComentarios->username ?></a></h6>
+                                    <?php if ($datosComentarios ->usuario_id_fk == $_SESSION['logueado']):?>
+                                            <a href="<?php echo URL_PROJECT ?>/publicaciones/eliminarComentario/<?php echo $datosComentarios->comentarios_id?>"
+                                               class="floar-right"> 
+                                               <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                    <?php endif ?>
+                                    </div>
+                                    <p class="small mb-0"><?= $datosComentarios->contenidoComentario?></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </li>
+                    </li>
+                <?php endif ?>
+            <?php endforeach?>
         </ul>
     </div>
 

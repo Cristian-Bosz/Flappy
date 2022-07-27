@@ -66,3 +66,16 @@ CREATE TABLE IF NOT EXISTS likes (
   FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
  
   )ENGINE = InnoDB;
+
+  CREATE TABLE IF NOT EXISTS comentarios (
+  comentarios_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  contenidoComentario  VARCHAR(255) NOT NULL,
+  fechaComentario TIMESTAMP NOT NULL,
+  usuario_id_fk INT UNSIGNED NOT NULL,
+  publicacion_id_fk INT UNSIGNED NOT NULL,
+
+ 
+  FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
+  FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+ 
+  )ENGINE = InnoDB;
