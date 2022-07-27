@@ -49,8 +49,20 @@ CREATE TABLE IF NOT EXISTS publicaciones (
   contenidoPublicacion VARCHAR(255) NOT NULL,
   fechaPublicacion TIMESTAMP NOT NULL,
   fotoPublicacion VARCHAR(255),
+  num_likes FLOAT,
   usuario_id_fk INT UNSIGNED NOT NULL,
  
-    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION)
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+    
+  )ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS likes (
+  likes_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario_id_fk INT UNSIGNED NOT NULL,
+  publicacion_id_fk INT UNSIGNED NOT NULL,
+
  
-ENGINE = InnoDB;
+  FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
+  FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+ 
+  )ENGINE = InnoDB;

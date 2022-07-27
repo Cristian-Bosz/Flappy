@@ -49,4 +49,27 @@ class Publicaciones extends Controller
         }
     } 
 
+
+    public function megusta($publicacion_id, $idUsuario) 
+    {
+        $datos = [
+            'publicacion_id' => $publicacion_id,
+            'usuario_id' => $idUsuario
+        ];
+
+        $datosPublicacion = $this->publicar->getPublicacion($publicacion_id);
+
+        if($this->publicar->rowLikes($datos)){
+            if ($this->publicar->eliminarLike($datos)){
+                $this->publicar->deleteLikeCount($datosPublicacion);
+            }
+            redirection('/home');
+        } else {
+            if ($this->publicar->agregarLike($datos)){
+                $this->publicar->addLikeCount($datosPublicacion);
+            }
+            redirection('/home');
+        }
+
+    }
 }

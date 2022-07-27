@@ -1,5 +1,5 @@
 <?php
-//dd($datos['publicaciones']);
+//dd($datos);
 ?>
 <?php foreach($datos['publicaciones'] as $datosPublicacion): ?>
 <div class="card mt-3">
@@ -28,7 +28,15 @@
         <img src="<?php echo URL_PROJECT . '/' . $datosPublicacion->fotoPublicacion?>" alt="Imagen publicacion" class="img-fluid card-img">
         <ul class="nav nav-stack py-3 small">
               <li class="nav-item">
-                <a class="nav-link active" href="#!"><i class="fa-solid fa-heart pe-1"></i>Liked (56)</a>
+                <a href="<?php echo URL_PROJECT ?>/publicaciones/megusta/<?php echo $datosPublicacion->publicacion_id . '/' . $_SESSION['logueado']?>"
+                   class="nav-link active
+                      <?php foreach ($datos['mislikes'] as $misLikesUser) {
+                        if ($misLikesUser->publicacion_id_fk == $datosPublicacion->publicacion_id) {
+                            echo "like-active";
+                        }
+                      }?>">
+                   <i class="fa-solid fa-heart pe-1"></i>Me gusta (<?php echo $datosPublicacion->num_likes  ?>)
+                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#!"><i class="fa-solid fa-comment pe-1"></i>Comments (12)</a>
