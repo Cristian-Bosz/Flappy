@@ -5,6 +5,7 @@ class Home extends Controller
     public function __construct()
     {
       $this->usuario = $this->model('usuario');
+      $this->publicaciones = $this->model('publicar');
     }
 
 /*si existe una session 'logueado' nos redirije al home, si no existe nos manda devuelta al login*/
@@ -14,11 +15,16 @@ class Home extends Controller
        {
          $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
          $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
+         $datosPublicaciones = $this->publicaciones->getPublicaciones();
+
+         $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
 
          if($datosPerfil){
             $datosRed = [
                'usuario' => $datosUsuario,
                'perfil' => $datosPerfil,
+               'publicaciones' => $datosPublicaciones,
+               'mislikes' => $verificarLike,
             ];
    
             $this->view('pages/home' , $datosRed);
