@@ -3,8 +3,8 @@ include_once URL_APP . '/view/custom/header.php';
 include_once URL_APP . '/view/custom/navbar.php';
 
 //dd($datos);
-
 ?>
+
 
 <div class="container mt-3">
 <div class="row">

@@ -20,6 +20,8 @@ class Home extends Controller
          $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
          $comentarios = $this->publicaciones->getComentarios();
 
+         $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
+
          if($datosPerfil){
             $datosRed = [
                'usuario' => $datosUsuario,
@@ -27,6 +29,7 @@ class Home extends Controller
                'publicaciones' => $datosPublicaciones,
                'mislikes' => $verificarLike,
                'comentarios' => $comentarios,
+               'misNotificaciones' => $misNotificaciones
             ];
    
             $this->view('pages/home' , $datosRed);

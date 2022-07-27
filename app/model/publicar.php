@@ -150,6 +150,37 @@ class Publicar
         }
     }
 
+    public function addNotificacionLike($datos)
+    {
+        $this->db->query('INSERT INTO notificaciones (usuarioAccion , usuario_id_fk , tipoNotificaciones_id_fk) VALUES (:usuarioAccion , :idUsuario , :tipo)');
+        $this->db->bind(':usuarioAccion' , $datos['usuario_id']);
+        $this->db->bind(':idUsuario' , $datos['idusuarioPropietario']);
+        $this->db->bind(':tipo' , 1);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
+    public function addNotificacionComentario($datos){
+        $this->db->query('INSERT INTO notificaciones (usuarioAccion , usuario_id_fk , tipoNotificaciones_id_fk) VALUES (:usuarioAccion , :idUsuario , :tipo)');
+        $this->db->bind(':usuarioAccion' , $datos['usuario_id']);
+        $this->db->bind(':idUsuario' , $datos['iduserPropietario']);
+        $this->db->bind(':tipo' , 2);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getNotificaciones($id)
+    {
+        $this->db->query('SELECT notificacion_id FROM notificaciones WHERE usuario_id_fk = :id');
+        $this->db->bind(':id' , $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

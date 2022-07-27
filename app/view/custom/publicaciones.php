@@ -30,7 +30,7 @@
         <img src="<?php echo URL_PROJECT . '/' . $datosPublicacion->fotoPublicacion?>" alt="Imagen publicacion" class="img-fluid card-img">
         <ul class="nav nav-stack py-3 small">
               <li class="nav-item">
-                <a href="<?php echo URL_PROJECT ?>/publicaciones/megusta/<?php echo $datosPublicacion->publicacion_id . '/' . $_SESSION['logueado']?>"
+                <a href="<?php echo URL_PROJECT ?>/publicaciones/megusta/<?php echo $datosPublicacion->publicacion_id . '/' . $_SESSION['logueado'] . '/' . $datosPublicacion->usuario_id?>"
                    class="nav-link active
                       <?php foreach ($datos['mislikes'] as $misLikesUser) {
                         if ($misLikesUser->publicacion_id_fk == $datosPublicacion->publicacion_id) {
@@ -51,6 +51,7 @@
               </div>
               <!-- Comment box  -->
               <form class="w-100" action="<?php echo URL_PROJECT ?>/publicaciones/comentar" method="POST">
+              <input type="hidden" name="iduserPropietario" value="<?php echo $datosPublicacion->usuario_id?>">
                     <input type="hidden" name="usuario_id" value="<?php echo $datos['usuario']->usuario_id?>">
                     <input type="hidden" name="publicacion_id" value="<?php echo $datosPublicacion->publicacion_id?>">
                     <textarea name="comentario" class="form-control pe-4 bg-light" rows="1" placeholder="Agrega un comentario..." require></textarea>

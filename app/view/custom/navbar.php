@@ -23,7 +23,11 @@
           <a class="nav-link" href="#"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-bell mx-1"></i>Notificaciones</a>
+          <a class="nav-link" href="#"><i class="fa-solid fa-bell mx-1"></i>Notificaciones 
+          <?php if($datos['misNotificaciones'] > 0) : ?>
+          <span class="badge bg-primary rounded-pill"><?= $datos['misNotificaciones']?></span>
+        <?php endif ?>
+        </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
