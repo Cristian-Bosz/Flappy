@@ -34,4 +34,19 @@ class Publicaciones extends Controller
         }
     }
 
+    public function eliminar($publicacion_id) 
+    {
+        $publicacion = $this->publicar->getPublicacion($publicacion_id);
+
+        //dd($publicacion);
+
+        if ($this->publicar->eliminarPublicacion($publicacion)) {
+            unlink('C:/xampp/htdocs/flappy/public/'.$publicacion->fotoPublicacion);
+            redirection('/home');
+
+        } else {
+
+        }
+    } 
+
 }

@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div>
-                <a href="#"><i class="fa-solid fa-trash-can"></i></a>
+                <a href="<?php echo URL_PROJECT ?>/publicaciones/eliminar/<?php echo $datosPublicacion->publicacion_id?>"><i class="fa-solid fa-trash-can"></i></a>
             </div>
         </div>
     </div>
