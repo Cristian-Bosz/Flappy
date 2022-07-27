@@ -11,15 +11,18 @@ include_once URL_APP . '/view/custom/navbar.php';
             <div class="d-sm-flex align-items-start text-center text-sm-start fondo">
                 <div>
                     <div class="avatar avatar-xxl mt-n5 mb-3">
+                        <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="imgPerfil" class="avatar-img rounded-circle border border-white border-3">
+                    <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>    
                         <form action="<?= URL_PROJECT?>/perfil/cambiarImagen" method="POST" enctype="multipart/form-data">
                             <label for="editarImg">
-                            <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="imgPerfil" class="avatar-img rounded-circle border border-white border-3">
+                            
                             <div class="editar-imagen"></div>
                             <input type="hidden" name="id_user" value="<?= $_SESSION['logueado']?>" >
                             <input type="file" name="imagen" id="editarImg" style="display: none" />
                             </label>  
                             <button type="submit" class="btn btn-primary btn-sm my-3">Subir</button>   
                         </form>
+                    <?php endif ?>
                     </div>
                 </div>
                 <div class="ms-sm-4 mt-sm-3">
