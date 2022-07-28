@@ -15,6 +15,10 @@ class usuario
         return $this->db->register();
     }
 
+    public function getUsuarios(){
+        $this->db->query('SELECT usuario_id , username FROM usuarios');
+        return $this->db->registers();
+    }
 
     public function getPerfil($usuario_id){
         $this->db->query('SELECT * FROM perfil WHERE usuario_id_fk = :id');

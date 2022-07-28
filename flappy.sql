@@ -97,3 +97,14 @@ CREATE TABLE IF NOT EXISTS likes (
     FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
     FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
 )ENGINE = InnoDB;
+
+
+
+CREATE TABLE IF NOT EXISTS mensajes (
+  mensaje_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuarioEmisor INT NOT NULL,
+  contenido LONGTEXT NOT NULL,
+  fechaMensaje TIMESTAMP NOT NULL,
+  usuarioReceptor INT UNSIGNED NOT NULL,
+       FOREIGN KEY (usuarioReceptor) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+  )ENGINE = InnoDB;

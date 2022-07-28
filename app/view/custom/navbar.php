@@ -20,7 +20,7 @@
           <a class="nav-link" href="#"><i class="fa-solid fa-users mx-1"></i>Usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
+          <a class="nav-link" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= URL_PROJECT ?>/notificaciones"><i class="fa-solid fa-bell mx-1"></i>Notificaciones 
