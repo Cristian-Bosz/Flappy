@@ -23,7 +23,7 @@
           <a class="nav-link" href="#"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-bell mx-1"></i>Notificaciones 
+          <a class="nav-link" href="<?= URL_PROJECT ?>/notificaciones"><i class="fa-solid fa-bell mx-1"></i>Notificaciones 
           <?php if($datos['misNotificaciones'] > 0) : ?>
           <span class="badge bg-primary rounded-pill"><?= $datos['misNotificaciones']?></span>
         <?php endif ?>
