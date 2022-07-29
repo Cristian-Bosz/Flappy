@@ -1,13 +1,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#"><i class="fa-solid fa-dove mx-1"></i>Flappy</a>
+    <a class="navbar-brand" href="<?php echo URL_PROJECT?>/home"><i class="fa-solid fa-dove mx-1"></i>Flappy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse align-items-start" id="navbarSupportedContent"> 
-        <form class="d-flex mx-5">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="<?= URL_PROJECT ?>/home/buscar" method="POST"  class="d-flex mx-5">
+        <input class="form-control me-2" type="search" name="buscar" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 

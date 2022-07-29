@@ -27,7 +27,7 @@
     </div>
     <div class="card-body">
         <p class="text-muted"><?php echo $datosPublicacion->contenidoPublicacion ?></p>
-        <img src="<?php echo URL_PROJECT . '/' . $datosPublicacion->fotoPublicacion?>" alt="Imagen publicacion" class="img-fluid card-img">
+        <img src="<?php echo URL_PROJECT . '/' . $datosPublicacion->fotoPublicacion?>" alt="" class="img-fluid card-img">
         <ul class="nav nav-stack py-3 small">
               <li class="nav-item">
                 <a href="<?php echo URL_PROJECT ?>/publicaciones/megusta/<?php echo $datosPublicacion->publicacion_id . '/' . $_SESSION['logueado'] . '/' . $datosPublicacion->usuario_id?>"

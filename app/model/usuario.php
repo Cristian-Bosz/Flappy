@@ -78,4 +78,27 @@ class usuario
             return false;
         }
     }
+
+    public function getAllUsuarios()
+    {
+        $this->db->query('SELECT usuario_id , username , fotoPerfil , nombreCompleto FROM usuarios
+        INNER JOIN perfil ON usuario_id_fk = usuario_id');
+        return $this->db->registers();
+    }
+
+    public function getCantidadUsuarios()
+    {
+        $this->db->query('SELECT usuario_id FROM usuarios');
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function buscar($busqueda)
+    {
+        $this->db->query('SELECT username , fotoPerfil , nombreCompleto FROM usuarios
+        INNER JOIN perfil ON usuario_id_fk = usuario_id 
+        WHERE username LIKE :buscar');
+        $this->db->bind(':buscar' , $busqueda);
+        return $this->db->registers();
+    }
 }
