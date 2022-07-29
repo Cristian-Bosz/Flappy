@@ -63,7 +63,8 @@ CREATE TABLE IF NOT EXISTS tiposNotificaciones (
 
 INSERT INTO tiposNotificaciones 
 VALUES (1, 	'Like', 	'le ha dado me gusta a tu publicacion'),
-       (2, 	'Comentario', 	'ha comentado tu publicacion');
+       (2, 	'Comentario', 	'ha comentado tu publicacion'),
+       (3, 	'Mensaje', 	'te envió un mensaje');
      
 
 
