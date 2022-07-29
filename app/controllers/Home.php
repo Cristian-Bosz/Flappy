@@ -84,12 +84,27 @@ class Home extends Controller
                'password' => password_hash(trim($_POST['password']), PASSWORD_DEFAULT)
             ];
       /*valido si el usuario se crea correctamente */
+            if (empty($_POST['email']) || (trim($_POST['email']) == '')) {
+               $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+               $this->view('/pages/register');
+               exit;
+            }
+            if (empty($_POST['usuario']) || (trim($_POST['usuario']) == '')) {
+               $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+               $this->view('/pages/register');
+               exit;
+            }
+            if (empty($_POST['password']) || (trim($_POST['password']) == '')) {
+               $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+               $this->view('/pages/register');
+               exit;
+            }
             if ($this->usuario->verificarUsuario($datosRegistro)){
                if ($this->usuario->register($datosRegistro)){
                $_SESSION['loginComplete'] = 'El usuario se ha creado correctamente.';
                redirection('/home');
             }else{ }
-            }else { $_SESSION['usuarioError'] = 'el usuario no esta disponible, intenta con otro nombre';
+            }else { $_SESSION['usuarioError'] = 'El usuario no esta disponible, intenta con otro nombre';
                $this->view('/pages/register');
             }
         }else{
