@@ -19,14 +19,16 @@ class Publicaciones extends Controller
         } else {
             $rutaImagen = 'Publicacion sin imagen';
         }
-        
-
         $datos = [
             'iduser' => trim($idUsuario),
             'contenido' => trim($_POST['contenido']),
             'foto' => $rutaImagen
         ];
-
+        if (empty($_POST['contenido']) || (trim($_POST['contenido']) == '')) {
+            $_SESSION['camposVacios'] = 'No puedes hacer una publicación vacía';
+            redirection('/home');
+            exit;
+         }
         if ($this->publicar->publicar($datos)) {
             redirection('/home');
         } else {
