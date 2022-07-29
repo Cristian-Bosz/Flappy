@@ -7,24 +7,28 @@ include_once URL_APP . '/view/custom/navbar.php';
 
 <section class="container">
     <h2 class="text-center mt-5">Chats privados</h2>
-
+    <?php if(isset($_SESSION['camposVacios'])) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['camposVacios'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> 
+        <?php unset($_SESSION['camposVacios']); endif ?>
 <div class="row my-5">
     <div class="col-6">
         <form action="<?= URL_PROJECT ?>/mensajes" method="POST">
-        <input type="hidden" name="iduser_emisor" value="<?= $_SESSION['logueado']?>">
-        <select class="form-select" name="enviar" aria-label="Default select example">
-        <option selected>Seleccionar un destinatario</option>
-            <?php foreach ($datos['usuarios'] as $allUsuarios) : ?>
-            <option value="<?= $allUsuarios->usuario_id?>"><?= $allUsuarios->username?></option>
-            <?php endforeach ?>
-        </select>
+            <input type="hidden" name="iduser_emisor" value="<?= $_SESSION['logueado']?>">
+            <select class="form-select" name="enviar" aria-label="Default select example">
+                <?php foreach ($datos['usuarios'] as $allUsuarios) : ?>
+                <option value="<?= $allUsuarios->usuario_id?>"><?= $allUsuarios->username?></option>
+                <?php endforeach ?>
+            </select>
 
-        <div class="mb-3">
-        <label for="mensaje" class="form-label">Mensaje</label>
-        <textarea class="form-control" name="mensaje" id="mensaje" rows="3"></textarea>
-        </div>
+            <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea class="form-control" name="mensaje" id="mensaje" rows="3"></textarea>
+            </div>
 
-        <button class="btn btn-info">Enviar mensaje</button>
+            <button class="btn btn-info">Enviar mensaje</button>
         </form>
     </div>
 
