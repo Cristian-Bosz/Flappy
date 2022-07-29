@@ -1,44 +1,50 @@
 <?php
 include_once URL_APP . '/view/custom/header.php';
 ?>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-container">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+					<div class="logo mt-5 mb-3">
+						<img src="<?php echo URL_PROJECT ?>/img/logoFlappy.png" width="150px">
+					</div>
+					<div class="heading mb-3">
+						<h4>Registrate</h4>
+					</div>
 
+                    <?php if(isset($_SESSION['usuarioError'])) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['usuarioError'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> 
+                    <?php unset($_SESSION['usuarioError']); endif ?>
+                    
+                    <form action="<?php echo URL_PROJECT?>/home/register" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email" required/>
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="usuario" class="form-control" id="floatingUser" placeholder="Usuario"  required/>
+                            <label for="floatingUser">Nombre de Usuario</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" class="form-control" id="floatingPass" placeholder="Contraseña" required/>
+                            <label for="floatingPass">Contraseña</label>
+                        </div>
+						<div class="text-left mb-3">
+							<button type="submit" class="btn">Registrarse</button>
+						</div>
+						<div class="text-white">¿Ya tienes una cuenta?
+                            <a href="<?php echo URL_PROJECT?>/home/login" class="register-link">Inicia Sesión</a>
+						</div>
+					</form>
+				</div>
+			</div>
 
-<section class="container-fluid py-3 bg-light">
-    <div class="container mb-5">
-    <div class="row justify-content-center">
-    <div class="col-md-8 borde pb-3 ">
-        <h1 class="display-5 mt-5 mb-5 text-center">Registro</h1>
-        <form class="container" action="<?php echo URL_PROJECT?>/home/register" method="post">
-  <div class="form-outline mb-4">
-                    <label class="form-label">Email*</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa tu Email" required/>
-                </div>
-                <div class="form-outline mb-4">
-                    <label class="form-label">Nombre de usuario</label>
-                    <input type="text" class="form-control" name="usuario" id="usuario" required/>
-                </div>
-              
-
-                <div class="form-outline mb-4">
-                    <label class="form-label">Contraseña*</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu Contraseña" required/>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block" id="modal" >Registrarse</button>
-        </form>
-
-        <?php if(isset($_SESSION['usuarioError'])) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= $_SESSION['usuarioError'] ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div> 
-        <?php unset($_SESSION['usuarioError']); endif ?>
-
-        <span>¿Ya tienes una cuenta?</span><a href="<?php echo URL_PROJECT?>/home/login">Ingresar</a>
-    </div>
-    </div>
-</div>
-</section>
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+		</div>
+	</div>
 
 <?php
 include_once URL_APP . '/view/custom/footer.php';
