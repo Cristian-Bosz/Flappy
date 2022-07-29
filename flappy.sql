@@ -109,3 +109,13 @@ CREATE TABLE IF NOT EXISTS mensajes (
   usuarioReceptor INT UNSIGNED NOT NULL,
        FOREIGN KEY (usuarioReceptor) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
   )ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS eventos (
+  evento_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  contenidoEvento VARCHAR(255) NOT NULL,
+  fechaEveneto TIMESTAMP NOT NULL,
+  num_asistencia FLOAT,
+  usuario_id_fk INT UNSIGNED NOT NULL,
+  FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION  
+)ENGINE = InnoDB;

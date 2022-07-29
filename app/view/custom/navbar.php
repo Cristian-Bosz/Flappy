@@ -13,11 +13,8 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo URL_PROJECT?>/home">
+          <a class="nav-link" aria-current="page" href="<?php echo URL_PROJECT?>/home">
           <i class="fa-solid fa-house mx-1"></i>Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-users mx-1"></i>Usuarios</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
