@@ -18,6 +18,21 @@ class Mensajes extends Controller
                 'enviar' => trim($_POST['enviar']),
                 'mensaje' => trim($_POST['mensaje']),
             ];
+            if (empty($_POST['iduser_emisor']) || (trim($_POST['iduser_emisor']) == '')) {
+                $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+                redirection('/mensajes');
+                exit;
+             }
+             if (empty($_POST['mensaje']) || (trim($_POST['mensaje']) == '')) {
+                $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+                redirection('/mensajes');
+                exit;
+             }
+             if (empty($_POST['enviar']) || (trim($_POST['enviar']) == '')) {
+                $_SESSION['camposVacios'] = 'Recuerda completar correctamente todos los campos';
+                redirection('/mensajes');
+                exit;
+             }
             if($this->mensaje->enviarMensaje($datosMensaje)){
                 redirection('/mensajes');
             } else {
