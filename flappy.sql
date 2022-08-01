@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS perfil (
 )ENGINE = InnoDB;
 
 INSERT INTO perfil 
-VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/tony.jpg', 	1),
+VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg', 	1),
        (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg', 	2);
      
 

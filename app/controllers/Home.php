@@ -187,6 +187,7 @@ class Home extends Controller
             $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
             $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
+            $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
             
    
             if($datosPerfil){
@@ -194,7 +195,9 @@ class Home extends Controller
                   'usuario' => $datosUsuario,
                   'perfil' => $datosPerfil,
                   'misNotificaciones' => $misNotificaciones,
-                  'resultado' => $datosBusqueda
+                  'resultado' => $datosBusqueda,
+                  'misNotificacionesMensaje' => $misNotificacionesMensaje
+
                ];
 
 

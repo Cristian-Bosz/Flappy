@@ -17,13 +17,14 @@ include_once URL_APP . '/view/custom/navbar.php';
     <div class="col-6">
         <form action="<?= URL_PROJECT ?>/mensajes" method="POST">
             <input type="hidden" name="iduser_emisor" value="<?= $_SESSION['logueado']?>">
+            <label class="my-1">Para:</label>
             <select class="form-select" name="enviar" aria-label="Default select example">
                 <?php foreach ($datos['usuarios'] as $allUsuarios) : ?>
                 <option value="<?= $allUsuarios->usuario_id?>"><?= $allUsuarios->username?></option>
                 <?php endforeach ?>
             </select>
 
-            <div class="mb-3">
+            <div class="my-3">
             <label for="mensaje" class="form-label">Mensaje</label>
             <textarea class="form-control" name="mensaje" id="mensaje" rows="3"></textarea>
             </div>
