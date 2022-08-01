@@ -31,6 +31,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                 </div> 
             </div>
             </div>
+            <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>
             <div class="card card-body mt-3">
                 <div class="d-flex mb-3">
                 <div class="avatar me-2">
@@ -51,11 +52,13 @@ include_once URL_APP . '/view/custom/navbar.php';
                 </form>
                 </div>
             </div>
+            <?php endif ?>
             <?php
             include_once URL_APP . '/view/custom/publicacionUsuario.php';
             ?>
         </div>
         <div class="col-lg-4">
+        <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>
             <div class="row">
                 <div class="col-md-6 col-lg-12">
                     <div class="cardP fondo">
@@ -66,6 +69,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                     </div>
                 </div>
             </div>
+        <?php endif ?>
         </div>
 
     </div>

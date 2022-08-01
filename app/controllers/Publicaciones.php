@@ -10,22 +10,26 @@ class Publicaciones extends Controller
 
     public function publicar ($idUsuario) {
 
-        if (isset($_FILES['imagen'])) {
-            $carpeta = 'C:/xampp/htdocs/Flappy/public/img/imagenesPublicaciones/';
-            opendir($carpeta);
-            $rutaImagen = 'img/imagenesPublicaciones/' . $_FILES['imagen']['name'];
-            $ruta = $carpeta . $_FILES['imagen']['name'];
+        $carpeta = 'C:/xampp/htdocs/Flappy/public/img/imagenesPublicaciones/';
+        opendir($carpeta);
+        $nombreImagen = $_FILES['imagen']['name'] ;
+        $rutaImagen = 'img/imagenesPublicaciones/' . $_FILES['imagen']['name'];
+        $ruta = $carpeta . $_FILES['imagen']['name'];
+
+        if (empty($nombreImagen)) {
+            $_SESSION['camposVacios'] = 'No puedes realizar una publicación sin descripción e imagen';
+            redirection('/home');
+            exit;
+         }else {
             copy($_FILES['imagen']['tmp_name'] , $ruta);
-        } else {
-            $rutaImagen = 'Publicacion sin imagen';
-        }
+         }
         $datos = [
             'iduser' => trim($idUsuario),
             'contenido' => trim($_POST['contenido']),
             'foto' => $rutaImagen
         ];
         if (empty($_POST['contenido']) || (trim($_POST['contenido']) == '')) {
-            $_SESSION['camposVacios'] = 'No puedes hacer una publicación vacía';
+            $_SESSION['camposVacios'] = 'No puedes realizar una publicación sin descripción e imagen';
             redirection('/home');
             exit;
          }

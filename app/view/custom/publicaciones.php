@@ -37,7 +37,7 @@
                             echo "like-active";
                         }
                       }?>">
-                   <i class="fa-solid fa-heart pe-1"></i>Me gusta (<?php echo $datosPublicacion->num_likes  ?>)
+                   <i class="fa-solid fa-heart pe-1"></i>Me gusta <?php echo $datosPublicacion->num_likes  ?>
                 </a>
               </li>
         </ul>
