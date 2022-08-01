@@ -15,13 +15,17 @@ class Perfil extends Controller
         if(isset($_SESSION['logueado'])){
             $datosUsuario = $this->usuario->getUsuario($user);
             $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id);
+            $publicacionUsuario = $this->usuario->getPublicacionesUser($datosUsuario->usuario_id);
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
+            $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
+
 
             $datos = [
                 'perfil' => $datosPerfil,
                 'usuario' => $datosUsuario,
-                'misNotificaciones' => $misNotificaciones
-
+                'misNotificaciones' => $misNotificaciones,
+                'publicacionUsuario' => $publicacionUsuario,
+                'mislikes' => $verificarLike,
             ];
 
             $this->view('pages/perfil/perfil' , $datos);
