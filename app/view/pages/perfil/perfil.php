@@ -32,6 +32,9 @@ include_once URL_APP . '/view/custom/navbar.php';
             </div>
             </div>
             <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>
+                <?php
+                include_once URL_APP . '/view/custom/botoneraPerfil.php';
+                ?>
             <div class="card card-body mt-3">
                 <div class="d-flex mb-3">
                 <div class="avatar me-2">

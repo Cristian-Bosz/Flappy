@@ -6,6 +6,8 @@ class Home extends Controller
     {
       $this->usuario = $this->model('usuario');
       $this->publicaciones = $this->model('publicar');
+      $this->eventos = $this->model('publicarEventos');
+
     }
 
 /*si existe una session 'logueado' nos redirije al home, si no existe nos manda devuelta al login*/
@@ -16,9 +18,11 @@ class Home extends Controller
          $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
          $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
          $datosPublicaciones = $this->publicaciones->getPublicaciones();
-         
+         $eventos = $this->eventos->getEventos();
 
          $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
+         $verificarAsistencias = $this->eventos->misAsistencias($_SESSION['logueado']);
+         $aistenciasEvento = $this->eventos->asistenciasEventos();
          $comentarios = $this->publicaciones->getComentarios();
 
          $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
@@ -34,8 +38,11 @@ class Home extends Controller
                'mislikes' => $verificarLike,
                'comentarios' => $comentarios,
                'misNotificaciones' => $misNotificaciones,
+               'eventos' => $eventos,
+               'misAsistencias' => $verificarAsistencias,
+               'asistenciasEvento' => $aistenciasEvento,
                
-              
+         
                'allUsuarios' => $usuariosRegistrados,
                'cantidadUsuarios' => $cantidadUsuarios
             ];

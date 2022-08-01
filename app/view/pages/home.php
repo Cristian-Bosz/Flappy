@@ -69,6 +69,9 @@ include_once URL_APP . '/view/custom/navbar.php';
         <?php
         include_once URL_APP . '/view/custom/publicaciones.php';
         ?>
+        <?php
+        include_once URL_APP . '/view/custom/eventos.php';
+        ?>
     </div>
     
     <div class="col-md-3">  </div>
