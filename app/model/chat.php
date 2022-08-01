@@ -30,7 +30,8 @@ class chat
         $this->db->bind(':id' , $id);
         return $this->db->registers();
     }
-
+   
+    
 
     public function eliminarMensaje($id)
     {
