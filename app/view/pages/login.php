@@ -29,7 +29,7 @@ include_once URL_APP . '/view/custom/header.php';
                     <form action="<?php echo URL_PROJECT?>/home/login" method="post">
                         <div class="form-floating mb-3">
                             <input type="text" name="usuario" id="floatingInput" class="form-control" placeholder="Ingresa tu nombre de usuario" required/>
-                            <label for="floatingInput">Email</label>
+                            <label for="floatingInput">Nombre de usuario</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" name="password" class="form-control" id="floatingContra" placeholder="Ingresa tu Contraseña"/>

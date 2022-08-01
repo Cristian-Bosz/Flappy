@@ -17,13 +17,17 @@
           <i class="fa-solid fa-house mx-1"></i>Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-comment mx-1"></i>Mensajes</a>
+          <a class="nav-link" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-comment mx-1"></i>Mensajes
+          <?php if($datos['misNotificacionesMensaje'] > 0) : ?>
+          <span class="badge bg-primary rounded-pill"><?= $datos['misNotificacionesMensaje']?></span>
+          <?php endif ?>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= URL_PROJECT ?>/notificaciones"><i class="fa-solid fa-bell mx-1"></i>Notificaciones 
           <?php if($datos['misNotificaciones'] > 0) : ?>
           <span class="badge bg-primary rounded-pill"><?= $datos['misNotificaciones']?></span>
-        <?php endif ?>
+          <?php endif ?>
         </a>
         </li>
         <li class="nav-item dropdown">

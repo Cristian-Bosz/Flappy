@@ -37,7 +37,10 @@ include_once URL_APP . '/view/custom/navbar.php';
 
     <div class="col-6">
         <ul class="comment-wrap list-unstyled" id="Comentarios">
-            <?php foreach ($datos['misMensajes'] as $datosMensajes) : ?>
+      
+        <h4 class="my-3">Mensajes Recibidos:</h4>
+        
+        <?php foreach ($datos['misMensajes'] as $datosMensajes) : ?>
                 
                     <li class="comment-item mt-3">
                         <div class="d-flex position-relative">
@@ -50,6 +53,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                                 <div class="bg-light rounded-start-top-0 p-3 rounded">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="mb-1 fw-bold"> <a href="#!"><?= $datosMensajes->username ?></a></h6>
+                                        <span><?= $datosMensajes->fechaMensaje ?></span>
                                    
                                         <a href="<?= URL_PROJECT ?>/mensajes/eliminarMensaje/<?=$datosMensajes->mensaje_id ?>"><i class="fa-solid fa-trash-can"></i></a>
                                  

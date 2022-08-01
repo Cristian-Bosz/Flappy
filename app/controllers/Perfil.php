@@ -7,6 +7,7 @@ class Perfil extends Controller
         $this->perfil = $this->model('perfilUsuario');
         $this->usuario = $this->model('usuario');
         $this->publicaciones = $this->model('publicar');
+        $this->mensaje = $this->model('chat');
 
     }
 
@@ -18,6 +19,7 @@ class Perfil extends Controller
             $publicacionUsuario = $this->usuario->getPublicacionesUser($datosUsuario->usuario_id);
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
             $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
+            $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
 
 
             $datos = [
@@ -26,6 +28,8 @@ class Perfil extends Controller
                 'misNotificaciones' => $misNotificaciones,
                 'publicacionUsuario' => $publicacionUsuario,
                 'mislikes' => $verificarLike,
+                'misNotificacionesMensaje' => $misNotificacionesMensaje
+
             ];
 
             $this->view('pages/perfil/perfil' , $datos);

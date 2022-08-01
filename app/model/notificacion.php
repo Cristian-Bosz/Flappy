@@ -11,11 +11,7 @@ class notificacion
 
     public function obtenerNotificaciones($idusuario)
     {
-        $this->db->query('SELECT notificacion_id , mensajeNotificacion , username 
-        FROM notificaciones  
-        INNER JOIN usuarios  ON usuario_id = usuarioAccion 
-        INNER JOIN tiposnotificaciones  ON tiposNotificaciones_id = tipoNotificaciones_id_fk 	 
-        WHERE usuario_id_fk = :iduser');
+        $this->db->query('SELECT N.notificacion_id , T.mensajeNotificacion , U.username , P.fotoPerfil FROM notificaciones N INNER JOIN usuarios U ON U.usuario_id = N.usuarioAccion INNER JOIN perfil P ON P.usuario_id_fk = N.usuarioAccion INNER JOIN tiposnotificaciones T ON T.tiposNotificaciones_id = N.tipoNotificaciones_id_fk WHERE N.usuario_id_fk = :iduser');
         $this->db->bind(':iduser' , $idusuario);
         return $this->db->registers();
     }
