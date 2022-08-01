@@ -16,6 +16,7 @@ class Home extends Controller
          $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
          $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
          $datosPublicaciones = $this->publicaciones->getPublicaciones();
+         
 
          $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
          $comentarios = $this->publicaciones->getComentarios();
@@ -33,12 +34,14 @@ class Home extends Controller
                'mislikes' => $verificarLike,
                'comentarios' => $comentarios,
                'misNotificaciones' => $misNotificaciones,
+               
               
                'allUsuarios' => $usuariosRegistrados,
                'cantidadUsuarios' => $cantidadUsuarios
             ];
-   
+
             $this->view('pages/home' , $datosRed);
+
          }else{
             $this->view('pages/perfil/completarPerfil' , $_SESSION['logueado']);
          }

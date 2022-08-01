@@ -50,7 +50,9 @@ CREATE TABLE IF NOT EXISTS publicaciones (
   fotoPublicacion VARCHAR(255),
   num_likes FLOAT,
   usuario_id_fk INT UNSIGNED NOT NULL,
-    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION  
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) 
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE 
 )ENGINE = InnoDB;
 
 
@@ -73,8 +75,13 @@ CREATE TABLE IF NOT EXISTS notificaciones (
   usuarioAccion INT NOT NULL, 
   usuario_id_fk INT UNSIGNED NOT NULL, 
   tipoNotificaciones_id_fk INT UNSIGNED NOT NULL,
-    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (tipoNotificaciones_id_fk) REFERENCES tiposNotificaciones (tiposNotificaciones_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION,
+
+    FOREIGN KEY (tipoNotificaciones_id_fk) REFERENCES tiposNotificaciones (tiposNotificaciones_id) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION
 )ENGINE = InnoDB;
 
 
@@ -83,8 +90,13 @@ CREATE TABLE IF NOT EXISTS likes (
   likes_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   usuario_id_fk INT UNSIGNED NOT NULL,
   publicacion_id_fk INT UNSIGNED NOT NULL,
-    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
-    FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) 
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE,
+
+    FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) 
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
 
@@ -95,8 +107,13 @@ CREATE TABLE IF NOT EXISTS likes (
   fechaComentario TIMESTAMP NOT NULL,
   usuario_id_fk INT UNSIGNED NOT NULL,
   publicacion_id_fk INT UNSIGNED NOT NULL,
-    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION,
-    FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
+    FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) 
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE,
+
+    FOREIGN KEY (publicacion_id_fk) REFERENCES publicaciones (publicacion_id) 
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
 

@@ -26,7 +26,15 @@ class usuario
         return $this->db->register();
     }
 
-
+    public function getPublicacionesUser($usuario_id) {
+        $this->db->query('SELECT P.publicacion_id, P.contenidoPublicacion, P.fotoPublicacion, P.fechaPublicacion, P.num_likes, U.username, U.usuario_id, Per.fotoPerfil 
+                          FROM publicaciones P
+                          INNER JOIN usuarios U ON U.usuario_id = P.usuario_id_fk 
+                          INNER JOIN perfil Per ON Per.usuario_id_fk = P.usuario_id_fk
+                          WHERE P.usuario_id_fk = :id');
+        $this->db->bind(':id', $usuario_id);
+        return $this->db->registers();
+    }
 
 
 /*recibe los datos del usuario y la contraseña que digitó en el formulario */

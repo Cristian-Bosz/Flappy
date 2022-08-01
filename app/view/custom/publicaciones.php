@@ -40,9 +40,6 @@
                    <i class="fa-solid fa-heart pe-1"></i>Me gusta (<?php echo $datosPublicacion->num_likes  ?>)
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Comentarios"><i class="fa-solid fa-comment pe-1"></i>Comments (12)</a>
-              </li>
         </ul>
         <div class="d-flex mb-3">
               <!-- Avatar -->
