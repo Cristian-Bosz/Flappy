@@ -130,21 +130,35 @@ class Home extends Controller
      {
       $carpeta = 'C:/xampp/htdocs/flappy/public/img/imagenesPerfil/';
       opendir($carpeta);
+      $nombreImagen = $_FILES['imagen']['name'] ;
       $rutaImagen = 'img/imagenesPerfil/' . $_FILES['imagen']['name'];
       $ruta = $carpeta . $_FILES['imagen']['name'];
-      copy($_FILES['imagen']['tmp_name'] , $ruta);
+      
+      if (empty($nombreImagen)) {
+         $_SESSION['camposVacios'] = 'Te faltaron agregar datos';
+         redirection('/home');
+         exit;
+      }else {
+         copy($_FILES['imagen']['tmp_name'] , $ruta);
+      }
 
       $datos = [
          'idusuario' => trim($_POST['id_user']),
          'nombre' => trim($_POST['nombre']),
          'ruta' => $rutaImagen,
       ];
+      if (empty($_POST['nombre']) || (trim($_POST['nombre']) == '')) {
+         $_SESSION['camposVacios'] = 'Te faltaron agregar datos';
+         redirection('/home');
+         exit;
+      }
 
       if ($this->usuario->insertarPerfil($datos)){
          redirection('/home');
       } else {
          echo 'el perfil no se ha guardado';
       }
+
      }
 
      public function logout()

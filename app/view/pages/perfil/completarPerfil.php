@@ -7,9 +7,12 @@ include_once URL_APP . '/view/custom/header.php';
     <div class="col-md-8 borde pb-3 cardP ">
         <h1 class="display-5 mt-5 text-center">Completa tu perfil</h1>
         <p class="lead mt-2 mb-5 text-center">Antes de continuar deberás completar tu perfil</p>
-
-
-
+        <?php if(isset($_SESSION['camposVacios'])) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['camposVacios'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> 
+        <?php unset($_SESSION['camposVacios']); endif ?>
         <form class="container" action="<?php echo URL_PROJECT?>/home/insertarRegistroPerfil" method="post" enctype="multipart/form-data">
         <input type="hidden" class="form-control" name="id_user" value="<?php echo $_SESSION['logueado'] ?>">
 
