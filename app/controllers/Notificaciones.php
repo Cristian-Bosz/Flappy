@@ -7,6 +7,8 @@ class Notificaciones extends Controller
         $this->notificar = $this->model('notificacion');
         $this->publicaciones = $this->model('publicar');
         $this->usuario = $this->model('usuario');
+        $this->mensaje = $this->model('chat');
+
     }
 
     public function index() 
@@ -17,13 +19,15 @@ class Notificaciones extends Controller
          $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id);
          $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
          $notificaciones = $this->notificar->obtenerNotificaciones($_SESSION['logueado']);
+         $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
          
          
             $datos = [
                'usuario' => $datosUsuario,
                'perfil' => $datosPerfil,
                'misNotificaciones' => $misNotificaciones,
-               'notificaciones' => $notificaciones
+               'notificaciones' => $notificaciones,
+               'misNotificacionesMensaje' => $misNotificacionesMensaje
             ];
    
             $this->view('pages/notificaciones/notificaciones' , $datos);  

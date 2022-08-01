@@ -34,6 +34,7 @@ class Mensajes extends Controller
                 exit;
              }
             if($this->mensaje->enviarMensaje($datosMensaje)){
+                $this->mensaje->addNotificacionMensaje($datosMensaje);
                 redirection('/mensajes');
             } else {
                 redirection('/mensajes');
@@ -46,13 +47,17 @@ class Mensajes extends Controller
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
             $datosUsuarios = $this->usuario->getUsuarios();
             $misMensajes = $this->mensaje->getMensajes($_SESSION['logueado']);
+            $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
+
+
             
                 $datos = [
                 'usuario' => $datosUsuario,
                 'perfil' => $datosPerfil,
                 'misNotificaciones' => $misNotificaciones,
                 'usuarios' => $datosUsuarios,
-                'misMensajes' => $misMensajes
+                'misMensajes' => $misMensajes,
+                'misNotificacionesMensaje' => $misNotificacionesMensaje
                 ];
     
                 $this->view('pages/mensajes/mensajes' , $datos);  
@@ -65,6 +70,7 @@ class Mensajes extends Controller
     }
     }
 
+
     public function eliminarMensaje($id)
     {
         if($this->mensaje->eliminarMensaje($id)) {
@@ -73,4 +79,6 @@ class Mensajes extends Controller
             redirection('/mensajes');
         }
     }
+
+    
 }

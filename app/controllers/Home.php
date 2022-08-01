@@ -6,6 +6,8 @@ class Home extends Controller
     {
       $this->usuario = $this->model('usuario');
       $this->publicaciones = $this->model('publicar');
+      $this->mensaje = $this->model('chat');
+
     }
 
 /*si existe una session 'logueado' nos redirije al home, si no existe nos manda devuelta al login*/
@@ -21,6 +23,8 @@ class Home extends Controller
          $comentarios = $this->publicaciones->getComentarios();
 
          $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
+         $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
+
          
          $usuariosRegistrados = $this->usuario->getAllUsuarios();
          $cantidadUsuarios = $this->usuario->getCantidadUsuarios();
@@ -33,6 +37,7 @@ class Home extends Controller
                'mislikes' => $verificarLike,
                'comentarios' => $comentarios,
                'misNotificaciones' => $misNotificaciones,
+               'misNotificacionesMensaje' => $misNotificacionesMensaje,
               
                'allUsuarios' => $usuariosRegistrados,
                'cantidadUsuarios' => $cantidadUsuarios

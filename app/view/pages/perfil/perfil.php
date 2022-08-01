@@ -57,8 +57,10 @@ include_once URL_APP . '/view/custom/navbar.php';
                 <div class="col-md-6 col-lg-12">
                     <div class="cardP fondo">
                         <div class="card-header d-sm-flex justify-content-between align-items-center border-0">
-                                <h5 class="card-title">Mensajes <span class="badge text-danger">5</span></h5>
-                                <button class="btn btn-dark"><i class="fa-solid fa-envelope me-2"></i>Mensajes</button>
+                                <h5 class="card-title">Mensajes    <?php if($datos['misNotificacionesMensaje'] > 0) : ?>
+          <span class="badge bg-danger rounded-pill"><?= $datos['misNotificacionesMensaje']?></span>
+          <?php endif ?></h5>
+                                <button class="btn btn-dark" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-envelope me-2"></i>Mensajes</button>
                         </div>
                     </div>
                 </div>
