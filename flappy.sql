@@ -26,7 +26,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 INSERT INTO usuarios 
 VALUES (1, 'cristianbosz@hotmail.com', 'Cristian', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:33', 1),
-      (2, 'agustinzoric@gmail.com', 'Agustin', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:43', 1);
+      (2, 'agustinzoric@gmail.com', 'Agustin', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:43', 1),
+      (3, 'santiago_gallino@davinci.edu.ar', 'Gallino', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:43', 1);
 
 
 
@@ -41,7 +42,9 @@ CREATE TABLE IF NOT EXISTS perfil (
 
 INSERT INTO perfil 
 VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg','El arte más nomble es hacer felices a los demás', 1),
-       (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg','El saber no ocupa espacio', 	2);
+       (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg','El saber no ocupa espacio', 	2),
+       (3, 	'Santiago Gallino', 'img/imagenesPerfil/revan.jpg','Concéntrate en el momento. Siente, no pienses, usa tu instinto.', 3);
+
      
 
 CREATE TABLE IF NOT EXISTS publicaciones (

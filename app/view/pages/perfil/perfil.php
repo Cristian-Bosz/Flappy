@@ -19,6 +19,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                 <div class="ms-sm-4 mt-sm-3">
                     <h1 class="mb-0 h5"><?= $datos['usuario']->username?><i class="fa-solid fa-circle-check text-success small ms-2"></i></h1>
                     <p class="text-muted"><?= $datos['perfil']->nombreCompleto?></p>
+                    <p class="text-muted">Estado: <?= $datos['perfil']->estado?></p>
                 </div>
                 <div class="d-flex mt-3 justify-content-center ms-sm-auto">
                 <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>
@@ -69,9 +70,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                 <div class="col-md-6 col-lg-12">
                     <div class="cardP fondo">
                         <div class="card-header d-sm-flex justify-content-between align-items-center border-0">
-                                <h5 class="card-title">Mensajes    <?php if($datos['misNotificacionesMensaje'] > 0) : ?>
-          <span class="badge bg-danger rounded-pill"><?= $datos['misNotificacionesMensaje']?></span>
-          <?php endif ?></h5>
+                                <h5 class="card-title">Mensajes</h5>
                                 <a class="btn btn-dark" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-envelope me-2"></i>Mensajes</a>
                         </div>
                     </div>
