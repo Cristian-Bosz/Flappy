@@ -21,7 +21,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                 </a>
            
             <small class="text-muted"><?= $datos['usuario']->username ?></small>
-            <p class="text-muted mt-2">El saber no ocupa espacio</p>
+            <p class="text-muted mt-2"><?= $datos['perfil']->estado ?></p>
             </div>
         </div>
     </div>

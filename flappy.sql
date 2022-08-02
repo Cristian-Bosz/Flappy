@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 )ENGINE = InnoDB;
 
 INSERT INTO usuarios 
-VALUES (1, 'cristianbosz@hotmail.com', 'cristian', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:33', 1),
-      (2, 'agustinzoric@gmail.com', 'agustin', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:43', 1);
+VALUES (1, 'cristianbosz@hotmail.com', 'Cristian', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:33', 1),
+      (2, 'agustinzoric@gmail.com', 'Agustin', '$2y$10$v/S24tCZcj7oTgcpHA1XCOFTVmlkRsn9Xqmd8LDnywh9IKZUmEQVW', '2022-07-24 12:08:43', 1);
 
 
 
@@ -34,13 +34,14 @@ CREATE TABLE IF NOT EXISTS perfil (
   perfil_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombreCompleto VARCHAR(100) NOT NULL,
   fotoPerfil VARCHAR(250) NOT NULL,
+  estado VARCHAR(250) NOT NULL,
   usuario_id_fk INT UNSIGNED NOT NULL,
     FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION
 )ENGINE = InnoDB;
 
 INSERT INTO perfil 
-VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg', 	1),
-       (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg', 	2);
+VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg','El arte más nomble es hacer felices a los demás', 1),
+       (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg','El saber no ocupa espacio', 	2);
      
 
 CREATE TABLE IF NOT EXISTS publicaciones (
@@ -118,6 +119,9 @@ CREATE TABLE IF NOT EXISTS likes (
     ON DELETE CASCADE  
     ON UPDATE CASCADE
 )ENGINE = InnoDB;
+
+INSERT INTO comentarios 
+VALUES (1, 'Esa frase siempre me llega al corazón', '2022-07-24 12:08:43', 1, 1);
 
 
 

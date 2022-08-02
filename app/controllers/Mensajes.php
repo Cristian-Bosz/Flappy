@@ -35,6 +35,7 @@ class Mensajes extends Controller
              }
             if($this->mensaje->enviarMensaje($datosMensaje)){
                 $this->mensaje->addNotificacionMensaje($datosMensaje);
+                $_SESSION['exito'] = 'Mensaje enviado con éxito';
                 redirection('/mensajes');
             } else {
                 redirection('/mensajes');
