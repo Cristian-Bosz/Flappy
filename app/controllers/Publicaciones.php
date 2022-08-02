@@ -93,12 +93,29 @@ class Publicaciones extends Controller
                 'publicacion_id' => trim($_POST['publicacion_id']),
                 'comentario'  => trim($_POST['comentario']),
             ];
+
+            if (empty($_POST['comentario']) || (trim($_POST['comentario']) == '')) {
+                $_SESSION['camposVacios'] = 'No puedes crear un comentario vacío';
+                redirection('/home');
+                exit;
+             }
+             if (empty($_POST['usuario_id']) || (trim($_POST['usuario_id']) == '')) {
+                $_SESSION['camposVacios'] = 'No puedes crear un comentario vacío';
+                redirection('/home');
+                exit;
+             }
+             if (empty($_POST['publicacion_id']) || (trim($_POST['publicacion_id']) == '')) {
+                $_SESSION['camposVacios'] = 'No puedes crear un comentario vacío';
+                redirection('/home');
+                exit;
+             }
+
             if($this->publicar->publicarComentario($datos)) {
                 $this->publicar->addNotificacionComentario($datos);
                 $_SESSION['exito'] = 'Comentario creado con éxito';
                 redirection('/home');
             } else {
-
+                $_SESSION['camposVacios'] = 'Ocurrió un error y no se pudo crear el comentario';
             }
         }else {
             redirection('/home');

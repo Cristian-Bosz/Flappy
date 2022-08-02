@@ -1,0 +1,19 @@
+Carrera: Diseño Web
+Materia: Programacion 3
+Cuatrimestre: Cuarto
+Año: 2022
+Turno: Noche
+Comision: A
+Apellidos y Nombres  : Zoric Francisco Agustín y Bosz Cristian
+Docente: Gallino Santiago
+Caracter de entrega: Final
+
+USUARIOS DE LA BASE: 
+user: agustin
+contraseña: 123456
+
+user: cristian
+contraseña: 123456
+
+user: gallino
+contraseña: 123456

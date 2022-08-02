@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS tiposNotificaciones (
 )ENGINE = InnoDB;
 
 INSERT INTO tiposNotificaciones 
-VALUES (1, 	'Like', 	'le ha dado me gusta a tu publicacion'),
-       (2, 	'Comentario', 	'ha comentado tu publicacion'),
+VALUES (1, 	'Like', 	'le ha dado me gusta a tu publicación'),
+       (2, 	'Comentario', 	'ha comentado tu publicación'),
        (3, 	'Mensaje', 	'te envió un mensaje');
      
 

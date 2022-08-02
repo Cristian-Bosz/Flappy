@@ -8,7 +8,7 @@
         <div class="text-center pt-3">
             <img src="<?php echo URL_PROJECT . '/' . $datosEventos->fotoPerfil?>" alt="Foto del usuario" class="img-fluid avatar avatar-xxl rounded-circle">
             <h2 class="mt-1 h4"><?=$datosEventos->username ?> realizó un evento</h2>
-            <p class="text-muted">El evento se realizara el dia: <?=$datosEventos->diaEvento ?></p>
+            <p class="text-muted">El evento se realizará el día: <?=$datosEventos->diaEvento ?></p>
         </div>
         <hr>
         <div class="text-center">
