@@ -34,6 +34,7 @@ class Publicaciones extends Controller
             exit;
          }
         if ($this->publicar->publicar($datos)) {
+            $_SESSION['exito'] = 'La publicación se creó con éxito';
             redirection('/home');
         } else {
             echo 'ocurrio un error';
@@ -48,6 +49,7 @@ class Publicaciones extends Controller
 
         if ($this->publicar->eliminarPublicacion($publicacion)) {
             unlink('C:/xampp/htdocs/flappy/public/'.$publicacion->fotoPublicacion);
+            $_SESSION['exito'] = 'La publicación se eliminó con éxito';
             redirection('/home');
 
         } else {

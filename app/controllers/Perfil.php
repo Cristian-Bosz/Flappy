@@ -8,7 +8,7 @@ class Perfil extends Controller
         $this->usuario = $this->model('usuario');
         $this->publicaciones = $this->model('publicar');
         $this->mensaje = $this->model('chat');
-
+        $this->eventos = $this->model('publicarEventos');
     }
 
     public function index($user)
@@ -16,7 +16,13 @@ class Perfil extends Controller
         if(isset($_SESSION['logueado'])){
             $datosUsuario = $this->usuario->getUsuario($user);
             $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id);
+            
             $publicacionUsuario = $this->usuario->getPublicacionesUser($datosUsuario->usuario_id);
+            $eventosUsuario = $this->usuario->getEventosUser($datosUsuario->usuario_id);
+
+            $verificarAsistencias = $this->eventos->misAsistencias($_SESSION['logueado']);
+            $aistenciasEvento = $this->eventos->asistenciasEventos();
+
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
             $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
             $misNotificacionesMensaje = $this->mensaje-> getNotificacionesMensaje($_SESSION['logueado']);
@@ -28,8 +34,10 @@ class Perfil extends Controller
                 'misNotificaciones' => $misNotificaciones,
                 'publicacionUsuario' => $publicacionUsuario,
                 'mislikes' => $verificarLike,
-                'misNotificacionesMensaje' => $misNotificacionesMensaje
-
+                'misNotificacionesMensaje' => $misNotificacionesMensaje,
+                'eventosUser' => $eventosUsuario,
+                'misAsistencias' => $verificarAsistencias,
+                'asistenciasEvento' => $aistenciasEvento,
             ];
 
             $this->view('pages/perfil/perfil' , $datos);
@@ -60,6 +68,7 @@ class Perfil extends Controller
         unlink('C:/xampp/htdocs/flappy/public/' . $imagenActual->fotoPerfil);
 
             $this->perfil->editarFoto($datos);
+            $_SESSION['exito'] = 'Se modificó con éxito tu perfil';
             redirection('/home');
         } else {
             redirection('/home');

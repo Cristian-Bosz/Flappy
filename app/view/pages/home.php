@@ -4,8 +4,6 @@ include_once URL_APP . '/view/custom/navbar.php';
 
 //dd($datos);
 ?>
-
-
 <div class="container mt-3">
 <div class="row">
     <div class="col-lg-3">
@@ -46,6 +44,12 @@ include_once URL_APP . '/view/custom/navbar.php';
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div> 
         <?php unset($_SESSION['camposVacios']); endif ?>
+        <?php if(isset($_SESSION['exito'])) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['exito'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> 
+        <?php unset($_SESSION['exito']); endif ?>
         <div class="card card-body">
             <div class="d-flex mb-3">
                 <div class="avatar me-2">
@@ -68,6 +72,9 @@ include_once URL_APP . '/view/custom/navbar.php';
         </div>
         <?php
         include_once URL_APP . '/view/custom/publicaciones.php';
+        ?>
+        <?php
+        include_once URL_APP . '/view/custom/eventos.php';
         ?>
     </div>
     
