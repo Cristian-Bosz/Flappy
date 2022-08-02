@@ -33,7 +33,7 @@ include_once URL_APP . '/view/custom/navbar.php';
             </div>
             <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>
                 <?php
-                include_once URL_APP . '/view/custom/botoneraPerfil.php';
+                include_once URL_APP . '/view/custom/eventoPerfil.php';
                 ?>
             <div class="card card-body mt-3">
                 <div class="d-flex mb-3">
@@ -58,6 +58,9 @@ include_once URL_APP . '/view/custom/navbar.php';
             <?php endif ?>
             <?php
             include_once URL_APP . '/view/custom/publicacionUsuario.php';
+            ?>
+            <?php
+            include_once URL_APP . '/view/custom/eventosUsuario.php';
             ?>
         </div>
         <div class="col-lg-4">

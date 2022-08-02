@@ -41,6 +41,19 @@ class PublicarEventos
 
     }
 
+    public function eliminarEvento($evento)
+    {
+        //dd($publicacion);
+
+        $this->db->query('DELETE FROM eventos WHERE evento_id = :id ');
+        $this->db->bind(':id', $evento->evento_id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function rowAsistencia($datos) 
     {
         $this->db->query('SELECT * FROM asistencias WHERE usuario_id_fk = :iduser	AND evento_id_fk = :evento');
@@ -114,5 +127,7 @@ class PublicarEventos
                             WHERE A.evento_id_fk');
         return $this->db->registers();
     }
+
+
 
 }

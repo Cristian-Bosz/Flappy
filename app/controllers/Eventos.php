@@ -16,11 +16,22 @@ class Eventos extends Controller
             'diaEvento' => trim($_POST['diaEvento']),
         ];
         if (empty($_POST['contenido']) || (trim($_POST['contenido']) == '')) {
-            $_SESSION['camposVacios'] = 'No puedes realizar una publicación sin descripción e imagen';
+            $_SESSION['camposVacios'] = 'No puedes realizar un evento sin todos los datos necesarios';
+            redirection('/home');
+            exit;
+         }
+         if (empty($_POST['ubicacion']) || (trim($_POST['ubicacion']) == '')) {
+            $_SESSION['camposVacios'] = 'No puedes realizar un evento sin todos los datos necesarios';
+            redirection('/home');
+            exit;
+         }
+         if (empty($_POST['diaEvento']) || (trim($_POST['diaEvento']) == '')) {
+            $_SESSION['camposVacios'] = 'No puedes realizar un evento sin todos los datos necesarios';
             redirection('/home');
             exit;
          }
         if ($this->publicarEvento->publicarEvento($datos)) {
+            $_SESSION['exito'] = 'El evento se creó con éxito';
             redirection('/home');
         } else {
             echo 'ocurrio un error';
@@ -50,10 +61,19 @@ class Eventos extends Controller
         }
     }
 
+    public function eliminar($evento_id) 
+    {
+        $evento = $this->publicarEvento->getEvento($evento_id);
 
+        //dd($evento);
 
+        if ($this->publicarEvento->eliminarEvento($evento)) {
+            $_SESSION['exito'] = 'El evento se eliminó con éxito';
+            redirection('/home');
 
-
-
+        } else {
+            echo 'No se pudo eliminar el evento';
+        }
+    } 
 
 }

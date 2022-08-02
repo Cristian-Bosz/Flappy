@@ -36,6 +36,16 @@ class usuario
         return $this->db->registers();
     }
 
+    public function getEventosUser($usuario_id) {
+        $this->db->query('SELECT E.evento_id, E.contenidoEvento, E.diaEvento, E.ubicacion, E.num_asistencia, U.username, U.usuario_id, Per.fotoPerfil 
+                          FROM eventos E
+                          INNER JOIN usuarios U ON U.usuario_id = E.usuario_id_fk 
+                          INNER JOIN perfil Per ON Per.usuario_id_fk = E.usuario_id_fk
+                          WHERE E.usuario_id_fk = :id');
+        $this->db->bind(':id', $usuario_id);
+        return $this->db->registers();
+    }
+
 
 /*recibe los datos del usuario y la contraseña que digitó en el formulario */
     public function verificarContrasena($datosUsuario , $contrasena){

@@ -7,6 +7,7 @@ class Perfil extends Controller
         $this->perfil = $this->model('perfilUsuario');
         $this->usuario = $this->model('usuario');
         $this->publicaciones = $this->model('publicar');
+        $this->eventos = $this->model('publicarEventos');
 
     }
 
@@ -15,7 +16,13 @@ class Perfil extends Controller
         if(isset($_SESSION['logueado'])){
             $datosUsuario = $this->usuario->getUsuario($user);
             $datosPerfil = $this->usuario->getPerfil($datosUsuario->usuario_id);
+            
             $publicacionUsuario = $this->usuario->getPublicacionesUser($datosUsuario->usuario_id);
+            $eventosUsuario = $this->usuario->getEventosUser($datosUsuario->usuario_id);
+
+            $verificarAsistencias = $this->eventos->misAsistencias($_SESSION['logueado']);
+            $aistenciasEvento = $this->eventos->asistenciasEventos();
+
             $misNotificaciones = $this->publicaciones->getNotificaciones($_SESSION['logueado']);
             $verificarLike = $this->publicaciones->misLikes($_SESSION['logueado']);
 
@@ -26,6 +33,9 @@ class Perfil extends Controller
                 'misNotificaciones' => $misNotificaciones,
                 'publicacionUsuario' => $publicacionUsuario,
                 'mislikes' => $verificarLike,
+                'eventosUser' => $eventosUsuario,
+                'misAsistencias' => $verificarAsistencias,
+                'asistenciasEvento' => $aistenciasEvento,
             ];
 
             $this->view('pages/perfil/perfil' , $datos);
@@ -56,6 +66,7 @@ class Perfil extends Controller
         unlink('C:/xampp/htdocs/flappy/public/' . $imagenActual->fotoPerfil);
 
             $this->perfil->editarFoto($datos);
+            $_SESSION['exito'] = 'Se modificó con éxito tu perfil';
             redirection('/home');
         } else {
             redirection('/home');

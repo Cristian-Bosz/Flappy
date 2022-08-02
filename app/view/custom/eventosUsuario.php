@@ -1,7 +1,4 @@
-<?php
-//dd($datos['comentarios']);
-?>
-<?php foreach($datos['eventos'] as $datosEventos): ?>
+<?php foreach($datos['eventosUser'] as $datosEventos): ?>
     <div class="cardP mt-2 container">
         <?php if ($datosEventos->usuario_id == $_SESSION['logueado']):?>
             <div class="p-2">
