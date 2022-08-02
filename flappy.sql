@@ -45,7 +45,7 @@ VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg', 	1),
 
 CREATE TABLE IF NOT EXISTS publicaciones (
   publicacion_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  contenidoPublicacion VARCHAR(255) NOT NULL,
+  contenidoPublicacion TEXT NOT NULL,
   fechaPublicacion TIMESTAMP NOT NULL,
   fotoPublicacion VARCHAR(255),
   num_likes FLOAT,
@@ -55,6 +55,9 @@ CREATE TABLE IF NOT EXISTS publicaciones (
     ON UPDATE CASCADE 
 )ENGINE = InnoDB;
 
+INSERT INTO publicaciones 
+VALUES (1, '-Frase de Gandalf: ¿Final? No este no es el final de la jornada, La muerte es solo otro camino que todos recorren. La cortina de lluvia gris del mundo se abre y se transforma en plata y cristal. Después lo ves… blancas costas, y más allá, un país lejano y verde a la luz de un amanecer.', '2022-07-24 12:08:43', 'img/imagenesPublicaciones/gandalf.jpg
+', '0', 2);
 
 
 CREATE TABLE IF NOT EXISTS tiposNotificaciones (
@@ -138,6 +141,9 @@ CREATE TABLE IF NOT EXISTS eventos (
   usuario_id_fk INT UNSIGNED NOT NULL,
   FOREIGN KEY (usuario_id_fk) REFERENCES usuarios (usuario_id) ON DELETE NO ACTION  ON UPDATE NO ACTION  
 )ENGINE = InnoDB;
+
+INSERT INTO eventos 
+VALUES (1, 'Vamos a ver Thor love and thunder, ¿Quien se copa?', '2022-07-24 12:08:43', '2022-07-24 12:08:43','Showcase Cinema IMAX Norcenter', '0', 1);
 
 CREATE TABLE IF NOT EXISTS asistencias (
   asistencia_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

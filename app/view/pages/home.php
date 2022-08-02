@@ -22,17 +22,6 @@ include_once URL_APP . '/view/custom/navbar.php';
            
             <small class="text-muted"><?= $datos['usuario']->username ?></small>
             <p class="text-muted mt-2">El saber no ocupa espacio</p>
-            <div class="hstack gap-2 gap-xl-3 justify-content-center">
-                <div>
-                    <h6 class="mb-0">2</h6>
-                    <small>Posts</small>
-                </div>
-                <div class="vr"></div>
-                <div>
-                    <h6 class="mb-0">259</h6>
-                    <small>Likes</small>
-                </div>
-            </div>
             </div>
         </div>
     </div>
