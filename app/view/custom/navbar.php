@@ -33,7 +33,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
          
-          <img class="rounded-circle img-perfil-nav" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>"/>
+          <img class="rounded-circle img-perfil-nav" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="foto de perfil de <?= $datos['perfil']->nombreCompleto?>"/>
            
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -63,7 +63,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                       class="w-100">
                     <textarea class="form-control pe-4 border-0" rows="2" id="contenido" name="contenido" placeholder="¿Que estas pensando...?" style="height: 61px;"></textarea>
                     <label for="subirImg" class="mt-3">
-                        <p class="btn bg-light py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Foto</p>
+                        <span class="btn bg-light py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Foto</span>
                         <input type="file" id="subirImg" name="imagen"  style="display: none" />
                     </label>
                     <button type="submit" class="btn btn-primary float-end mt-3">Publicar</button>

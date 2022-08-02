@@ -37,10 +37,10 @@ include_once URL_APP . '/view/custom/navbar.php';
 
 
     <div class="col-6">
-        <ul class="comment-wrap list-unstyled" id="Comentarios">
+        
       
         <h4 class="my-3">Mensajes Recibidos:</h4>
-        
+        <ul class="comment-wrap list-unstyled" id="Comentarios">
         <?php foreach ($datos['misMensajes'] as $datosMensajes) : ?>
                 
                     <li class="comment-item mt-3">

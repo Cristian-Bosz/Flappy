@@ -48,7 +48,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                       class="w-100">
                     <textarea class="form-control pe-4 border-0" rows="2" id="contenido" name="contenido" placeholder="¿Que estas pensando...?" style="height: 61px;"></textarea>
                     <label for="subirImg" class="mt-3">
-                        <p class="btn bg-light py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Foto</p>
+                        <span class="btn bg-light py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Foto</span>
                         <input type="file" id="subirImg" name="imagen"  style="display: none" />
                     </label>
                     <button type="submit" class="btn btn-primary float-end mt-3">Publicar</button>
@@ -72,7 +72,7 @@ include_once URL_APP . '/view/custom/navbar.php';
                                 <h5 class="card-title">Mensajes    <?php if($datos['misNotificacionesMensaje'] > 0) : ?>
           <span class="badge bg-danger rounded-pill"><?= $datos['misNotificacionesMensaje']?></span>
           <?php endif ?></h5>
-                                <button class="btn btn-dark" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-envelope me-2"></i>Mensajes</button>
+                                <a class="btn btn-dark" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-envelope me-2"></i>Mensajes</a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ include_once URL_APP . '/view/custom/navbar.php';
             <?php if ($datos['usuario']->usuario_id == $_SESSION['logueado']) : ?>    
                 <form action="<?= URL_PROJECT?>/perfil/cambiarImagen" method="POST" enctype="multipart/form-data">
                     <label for="editarImg">
-                        <div class="editar-imagen"></div>
+                        <span class="editar-imagen"></span>
                         <input type="hidden" name="id_user" value="<?= $_SESSION['logueado']?>" >
                         <input type="file" name="imagen" id="editarImg" style="display: none" />
                     </label>

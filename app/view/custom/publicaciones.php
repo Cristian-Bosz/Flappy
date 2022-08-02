@@ -51,7 +51,7 @@
               <input type="hidden" name="iduserPropietario" value="<?php echo $datosPublicacion->usuario_id?>">
                     <input type="hidden" name="usuario_id" value="<?php echo $datos['usuario']->usuario_id?>">
                     <input type="hidden" name="publicacion_id" value="<?php echo $datosPublicacion->publicacion_id?>">
-                    <textarea name="comentario" class="form-control pe-4 bg-light" rows="1" placeholder="Agrega un comentario..." require></textarea>
+                    <textarea name="comentario" class="form-control pe-4 bg-light" rows="1" placeholder="Agrega un comentario..." required></textarea>
                     <button class="btn btn-primary float-end mt-3" type="submit">Comentar</button>
               </form>
         </div>
