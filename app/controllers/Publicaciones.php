@@ -95,6 +95,7 @@ class Publicaciones extends Controller
             ];
             if($this->publicar->publicarComentario($datos)) {
                 $this->publicar->addNotificacionComentario($datos);
+                $_SESSION['exito'] = 'Comentario creado con éxito';
                 redirection('/home');
             } else {
 
@@ -107,6 +108,7 @@ class Publicaciones extends Controller
     public function eliminarComentario($id) 
     {
         if($this->publicar->eliminarComentarioUsuario($id)) {
+            $_SESSION['exito'] = 'Comentario eliminado con éxito';
             redirection('/home');
         } else {
             redirection('/home');

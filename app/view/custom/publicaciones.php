@@ -44,7 +44,7 @@
         <div class="d-flex mb-3">
               <!-- Avatar -->
               <div class="avatar avatar-xs me-2">
-                <a href="#!"> <img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt=""> </a>
+                <img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil?>" alt="Foto de <?= $datos['usuario']->username?>">
               </div>
               <!-- Comment box  -->
               <form class="w-100" action="<?php echo URL_PROJECT ?>/publicaciones/comentar" method="POST">
@@ -61,14 +61,12 @@
                     <li class="comment-item mt-3">
                         <div class="d-flex position-relative">
                             <div class="avatar avatar-xs">
-                                <a href="#!">
                                     <img class="avatar-img rounded-circle" src="<?php echo URL_PROJECT . '/' . $datosComentarios->fotoPerfil?>" alt="fotoPerfilUsuario">
-                                </a>
                             </div>
                             <div class="ms-2 w-100">
                                 <div class="bg-light rounded-start-top-0 p-3 rounded">
                                     <div class="d-flex justify-content-between">
-                                        <h6 class="mb-1 fw-bold"> <a href="#!"><?= $datosComentarios->username ?></a></h6>
+                                        <h6 class="mb-1 fw-bold"><?= $datosComentarios->username ?></h6>
                                     <?php if ($datosComentarios ->usuario_id_fk == $_SESSION['logueado']):?>
                                             <a href="<?php echo URL_PROJECT ?>/publicaciones/eliminarComentario/<?php echo $datosComentarios->comentarios_id?>"
                                                class="floar-right"> 

@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS perfil (
 )ENGINE = InnoDB;
 
 INSERT INTO perfil 
-VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg','El arte más nomble es hacer felices a los demás', 1),
+VALUES (1, 	'Cristian Bösz', 	'img/imagenesPerfil/jaskier.jpg','El arte más noble es hacer felices a los demás', 1),
        (2, 	'Agustin Zoric', 	'img/imagenesPerfil/miguel.jpg','El saber no ocupa espacio', 	2),
        (3, 	'Santiago Gallino', 'img/imagenesPerfil/revan.jpg','Concéntrate en el momento. Siente, no pienses, usa tu instinto.', 3);
 

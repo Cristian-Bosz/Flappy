@@ -51,11 +51,14 @@ class Eventos extends Controller
         if($this->publicarEvento->rowAsistencia($datos)){
             if ($this->publicarEvento->eliminarAsistencia($datos)){
                 $this->publicarEvento->deleteAsisCount($datosEvento);
+                $_SESSION['exito'] = 'Ya no participas en el evento';
             }
             redirection('/home');
         } else {
             if ($this->publicarEvento->agregarAsistencia($datos)){
                 $this->publicarEvento->addAsisCount($datosEvento);
+                $_SESSION['exito'] = 'Te anotaste al evento con éxito';
+
             }
             redirection('/home');
         }

@@ -19,7 +19,7 @@
             <p><i class="fa-solid fa-location-dot me-2"></i>Ubicación: <?=$datosEventos->ubicacion ?></p>
             <div class="text-center">
                 <a href="<?php echo URL_PROJECT ?>/eventos/asistir/<?php echo $datosEventos->evento_id . '/' . $_SESSION['logueado'] . '/' . $datosEventos->usuario_id?>"
-                    class="btn
+                    class="btn btn-success
                         <?php foreach ($datos['misAsistencias'] as $misAsistUser) {
                             if ($misAsistUser->evento_id_fk == $datosEventos->evento_id) {
                                 echo "btn-primary";
