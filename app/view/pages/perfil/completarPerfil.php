@@ -21,6 +21,11 @@ include_once URL_APP . '/view/custom/header.php';
                 <label for="nombre">Nombre completo</label>
             </div>
 
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="estado" id="floatingInput" placeholder="Ingresa un estado para tu perfil">
+                <label for="nombre">Estado</label>
+            </div>
+
             <div class="input-group mb-3">
                 <label class="input-group-text" for="elegirImg">
                     <p class="btn py-1 px-2 mb-0"><i class="fa-solid fa-image text-success pe-2"></i> Elige una foto de perfil</p>

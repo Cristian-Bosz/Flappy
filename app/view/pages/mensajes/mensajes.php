@@ -13,6 +13,12 @@ include_once URL_APP . '/view/custom/navbar.php';
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div> 
         <?php unset($_SESSION['camposVacios']); endif ?>
+    <?php if(isset($_SESSION['exito'])) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['exito'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> 
+    <?php unset($_SESSION['exito']); endif ?>
 <div class="row my-5">
     <div class="col-6">
         <form action="<?= URL_PROJECT ?>/mensajes" method="POST">

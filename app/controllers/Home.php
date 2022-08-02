@@ -154,9 +154,15 @@ class Home extends Controller
       $datos = [
          'idusuario' => trim($_POST['id_user']),
          'nombre' => trim($_POST['nombre']),
+         'estado' => trim($_POST['estado']),
          'ruta' => $rutaImagen,
       ];
       if (empty($_POST['nombre']) || (trim($_POST['nombre']) == '')) {
+         $_SESSION['camposVacios'] = 'Te faltaron agregar datos';
+         redirection('/home');
+         exit;
+      }
+      if (empty($_POST['estado']) || (trim($_POST['estado']) == '')) {
          $_SESSION['camposVacios'] = 'Te faltaron agregar datos';
          redirection('/home');
          exit;

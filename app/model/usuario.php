@@ -85,9 +85,10 @@ class usuario
 
     public function insertarPerfil($datos)
     {
-        $this->db->query('INSERT INTO perfil (nombreCompleto ,fotoPerfil, usuario_id_fk	) VALUES (:nombre , :rutaFoto , :id)');
+        $this->db->query('INSERT INTO perfil (nombreCompleto ,fotoPerfil, estado, usuario_id_fk	) VALUES (:nombre , :rutaFoto , :estado, :id)');
         $this->db->bind(':nombre', $datos['nombre']);
         $this->db->bind(':rutaFoto', $datos['ruta']);
+        $this->db->bind(':estado', $datos['estado']);
         $this->db->bind(':id', $datos['idusuario']);
 
         if($this->db->execute()){
