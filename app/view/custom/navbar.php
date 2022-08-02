@@ -18,9 +18,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= URL_PROJECT ?>/mensajes"><i class="fa-solid fa-comment mx-1"></i>Mensajes
-          <?php if($datos['misNotificacionesMensaje'] > 0) : ?>
-          <span class="badge bg-primary rounded-pill"><?= $datos['misNotificacionesMensaje']?></span>
-          <?php endif ?>
           </a>
         </li>
         <li class="nav-item">
