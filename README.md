@@ -1,5 +1,4 @@
 # Flappy
-
 💡 Flappy es una mini red social, utilizando los conceptos de PHP orientada a objetos, basándose en una arquitectura MVC. 
 
 
