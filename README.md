@@ -4,11 +4,13 @@
 
 📌 Funciones mínimas de la Red Social.
 La red debe contemplar las siguientes funcionalidades:
+
 ✅ Registro y logueo de usuarios.
 ✅ Manejo de perfil de cada usuario (ver/editar datos).
 ✅ Posteo de novedades, que otros usuarios puedan comentar.
 
 Además, debe haber la inclusión de otras funcionalidades, incluyendo al menos 2 del siguiente listado:
+
 📍 Agregar/quitar usuarios a un lista de amigos, para poder luego ver sus publicaciones de manera separada.
 📍 Agregar publicaciones como favoritas, para poder verlas en un listado especial, y recibir notificaciones cuando haya algún comentario nuevo.
 📍 Recomendar/republicar publicaciones en su "muro" personal.
